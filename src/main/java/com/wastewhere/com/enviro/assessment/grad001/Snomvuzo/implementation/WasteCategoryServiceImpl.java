@@ -15,22 +15,30 @@ public class WasteCategoryServiceImpl implements WasteCategoryService {
     @Autowired
     private WasteCategoryRepository wasteCategoryRepository;
 
+    // This function retrieves a list of all waste categories.
+    // It fetches all categories from the repository.
     @Override
     public List<WasteCategory> getAllCategories() {
         return wasteCategoryRepository.findAll();
     }
 
+    // This function retrieves a specific waste category based on its ID.
+    // It fetches the category from the repository or throws an exception if not found.
     @Override
     public WasteCategory getCategoryById(Long id) {
         return wasteCategoryRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Waste category not found with id: " + id));
     }
 
+    // This function creates a new waste category.
+    // It saves the category to the repository.
     @Override
     public WasteCategory createCategory(WasteCategory category) {
         return wasteCategoryRepository.save(category);
     }
 
+    // This function updates an existing waste category based on its ID.
+    // It retrieves the existing category, updates its fields, and saves the updated category to the repository.
     @Override
     public WasteCategory updateCategory(Long id, WasteCategory category) {
         WasteCategory existingCategory = getCategoryById(id);
@@ -39,6 +47,8 @@ public class WasteCategoryServiceImpl implements WasteCategoryService {
         return wasteCategoryRepository.save(existingCategory);
     }
 
+    // This function deletes a specific waste category based on its ID.
+    // It retrieves the category and deletes it from the repository.
     @Override
     public void deleteCategory(Long id) {
         WasteCategory category = getCategoryById(id);

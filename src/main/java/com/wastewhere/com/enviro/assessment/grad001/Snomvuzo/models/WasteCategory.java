@@ -18,26 +18,32 @@ public class WasteCategory {
 
     // Getters and setters
 
+    // Retrieves the unique identifier of this waste category.
     public Long getId() {
         return id;
     }
 
+    // Sets the unique identifier of this waste category.
     public void setId(Long id) {
         this.id = id;
     }
 
+    // Retrieves the name of this waste category.
     public String getName() {
         return name;
     }
 
+    // Sets the name of this waste category.
     public void setName(String name) {
         this.name = name;
     }
 
+    // Retrieves the description of this waste category.
     public String getDescription() {
         return description;
     }
 
+    // Sets the description of this waste category.
     public void setDescription(String description) {
         this.description = description;
     }
